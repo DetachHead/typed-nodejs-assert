@@ -1,6 +1,6 @@
 {
   "name": "typed-nodejs-assert",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "dist/main.js",
   "scripts": {
     "test": "jest",
@@ -20,5 +20,5 @@
     "ts-jest": "^26.4.4",
     "typescript": "^4.1.3"
   },
-  "description": ""
+  "description": "improved type definitions for assertions in the nodeJS assert API"
 }
