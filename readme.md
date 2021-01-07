@@ -18,7 +18,7 @@ assert.deepStrictEqual(foo, {})
 ```
 
 ## power-assert compatibility
-this works with [power-assert](https://npmjs.org/power-assert), just make sure you use the following import syntax:
+this works with [power-assert](https://npmjs.org/power-assert) as well.
 ```ts
-import assert = require('typed-nodejs-assert')
+import assert = require('typed-nodejs-assert/dist/power-assert')
 ```
