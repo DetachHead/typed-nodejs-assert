@@ -2,6 +2,7 @@
   "name": "typed-nodejs-assert",
   "version": "0.0.1",
   "main": "dist/main.js",
+  "types": "dist/main.d.ts",
   "scripts": {
     "test": "jest",
     "build": "rimraf ./dist && tsc"
