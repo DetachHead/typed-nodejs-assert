@@ -1,7 +1,8 @@
 # typed nodejs assert
-the typescript definitions for the default assertion library in nodeJS [do not properly check the types for deep
-equality checks](https://github.com/DefinitelyTyped/DefinitelyTyped/pull/50274), leading to assertion errors that could
-easily be caught ar
+improved type definitions for assertions in the default nodeJS assert API.
+
+the typescript definitions for the default assertion library in nodeJS [do not properly check the types](https://github.com/DefinitelyTyped/DefinitelyTyped/pull/50274), leading to assertion errors that could
+easily be caught by the compiler.
 
 ## example
 in the current type definitions, the following error would not occur:
