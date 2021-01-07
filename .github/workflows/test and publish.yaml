@@ -2,7 +2,7 @@ name: test-and-publish
 on:
   - push
 jobs:
-  test:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -12,6 +12,11 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run test
+      - uses: actions/upload-artifact@v2
+        if: github.ref == 'refs/heads/master'
+        with:
+          name: build
+          path: dist
         env:
           CI: true
   publish:
@@ -24,8 +29,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 15.4
-      - run: npm ci
-      - run: npm run build
+      - uses: actions/download-artifact@v2
+        with:
+          name: build
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
