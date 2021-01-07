@@ -1,9 +1,10 @@
 {
   "name": "typed-nodejs-assert",
   "version": "1.0.0",
-  "main": "src/main.ts",
+  "main": "dist/main.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "rimraf ./dist && tsc"
   },
   "keywords": [],
   "author": "",
