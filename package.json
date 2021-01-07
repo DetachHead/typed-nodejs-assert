@@ -1,6 +1,6 @@
 {
   "name": "typed-nodejs-assert",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dist/assert.js",
   "types": "dist/assert.d.ts",
   "scripts": {
