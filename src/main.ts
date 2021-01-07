@@ -1,12 +1,18 @@
-import _assert = require('assert')
+//import assert using UMD syntax (so it works with power-assert)
+import assert = require('assert')
 
-type Assert = Omit<typeof _assert, "deepStrictEqual" | "strictEqual"> & {
-    (value: any, message?: string | Error): asserts value; //TODO: figure out why typeof assert removes this call sig
+//replace the bad types with our own versions. as far as i'm aware this is the only way to do it, declaring a
+// module to exiend the existing types won't work as we need to actually delete existing ones
+type Assert = Omit<typeof assert, "deepStrictEqual" | "strictEqual"> & {
+    //typeof assert doesn't include the call sig
+    (value: any, message?: string | Error): asserts value;
     strictEqual<T extends U, U = T>(actual: U, expected: T, message?: string): asserts actual is T;
     deepStrictEqual<T extends U, U = T>(actual: U, expected: T, message?: string): asserts actual is T;
 };
 
-//hack https://github.com/microsoft/TypeScript/issues/34596#issuecomment-691574987
-const assert: Assert = _assert
+//define a const with an explicit type declaration to work around this issue
+// https://github.com/microsoft/TypeScript/issues/34596#issuecomment-691574987
+const _assert: Assert = assert
 
-export = assert
+//export it UMD style, so it still works with power-assert
+export = _assert

@@ -1,12 +1,34 @@
 import assert = require('./main')
 
-test('deepStrictEqual types', () => {
-    type Foo = {
-        bar: number
-    }
-    const foo: Foo = {
-        bar: 1
-    }
-    //@ts-expect-error
-    assert.deepStrictEqual(foo, foo as unknown as number)
+test('power-assert', () => {
+    assert.throws(
+        () => {
+            assert(1 === (2 as any))
+        },
+        (err: Error) => err.message.includes('assert(1 === 2)')
+    )
 })
+
+describe('types', () => {
+    test('strictEqual', () => {
+        assert.strictEqual(
+            1,
+            //@ts-expect-error
+            1 as unknown
+        )
+    })
+    test('deepStrictEqual', () => {
+        type Foo = {
+            bar: number
+        }
+        const foo: Foo = {
+            bar: 1
+        }
+        assert.deepStrictEqual(
+            foo,
+            //@ts-expect-error
+            foo as unknown
+        )
+    })
+})
+
