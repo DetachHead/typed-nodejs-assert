@@ -29,8 +29,8 @@ easily be caught by the compiler.
 import assert from 'typed-nodejs-assert'
 ```
 ### with [power-assert](https://npmjs.org/power-assert)
-due to the fact that power-assert usually has to be imported using UMD syntax, you have to import it as such and give it
-the `PowerAsssert` type from this package.
+since power-assert has to be imported using UMD syntax, you have to import it as such, then give it the `PowerAsssert`
+type from this package.
 
 ```ts
 import { PowerAssert } from 'typed-nodejs-assert'
