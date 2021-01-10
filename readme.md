@@ -1,8 +1,14 @@
 # typed nodejs assert
-improved type definitions for assertions in the nodeJS assert API.
+various fixes for assertions in nodeJS.
 
-the typescript definitions for the default assertion library in nodeJS [do not properly check the types of expected/actual values](https://github.com/DefinitelyTyped/DefinitelyTyped/pull/50274), leading to assertion errors that could
+## what it do
+this packages fixes the following issues:
+- the typescript definitions for the default assertion library in nodeJS
+  [do not properly check the types of expected/actual values](https://github.com/DefinitelyTyped/DefinitelyTyped/pull/50274),
+  leading to assertion errors that could
 easily be caught by the compiler.
+- [power-assert](https://npmjs.org/power-assert) can only be imported using UMD syntax
+  (`const assert = require('power-assert')`), meaning it's treated as `any` by the compiler in many cases
 
 ## example
 in the current type definitions, the following error would not occur:
@@ -17,8 +23,24 @@ const foo: Foo = {
 assert.deepStrictEqual(foo, {})
 ```
 
-## power-assert compatibility
-this works with [power-assert](https://npmjs.org/power-assert) as well.
+## how to use
+### normally
 ```ts
-import assert = require('typed-nodejs-assert/dist/power-assert')
+import assert from 'typed-nodejs-assert'
+```
+### with [power-assert](https://npmjs.org/power-assert)
+due to the fact that power-assert usually has to be imported using UMD syntax, it's a bit more complicated.
+(yes, you have to explicitly specify the type `PowerAssert` or it won't work - see 
+[this issue](https://github.com/microsoft/TypeScript/issues/34596#issuecomment-691574987))
+```ts
+import {getPowerAssert, PowerAssert} from 'typed-nodejs-assert'
+const assert: PowerAssert = getPowerAssert()
+```
+you can pass a [customization object](https://github.com/power-assert-js/power-assert#customization-api):
+```ts
+const assert: PowerAssert = getPowerAssert({
+    output: {
+        maxDepth: 2
+    }
+})
 ```
