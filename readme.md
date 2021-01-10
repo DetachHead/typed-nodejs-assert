@@ -1,5 +1,5 @@
 # typed nodejs assert
-various fixes for assertions in nodeJS.
+various fixes for nodeJS assertions in typescript.
 
 ## what it do
 this packages fixes the following issues:
