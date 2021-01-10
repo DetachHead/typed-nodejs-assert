@@ -1,6 +1,7 @@
 # typed nodejs assert
 various fixes for nodeJS assertions in typescript.
 
+[![npm](https://img.shields.io/npm/v/typed-nodejs-assert)](https://www.npmjs.com/package/typed-nodejs-assert)
 ## what it do
 this packages fixes the following issues:
 - the typescript definitions for the default assertion library in nodeJS
