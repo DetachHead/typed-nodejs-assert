@@ -7,21 +7,20 @@ this packages fixes the following issues:
   [do not properly check the types of expected/actual values](https://github.com/DefinitelyTyped/DefinitelyTyped/pull/50274),
   leading to assertion errors that could
 easily be caught by the compiler.
+  
+  for example. in the current type definitions, the following error would not occur:
+  ```ts
+  type Foo = {
+      bar: number
+  }
+  const foo: Foo = {
+      bar: 1
+  }
+  //@ts-expect-error TS2345: Argument of type '{}' is not assignable to parameter of type 'Foo'. Property 'bar' is missing in type '{}' but required in type 'Foo'
+  assert.deepStrictEqual(foo, {})
+  ```
 - [power-assert](https://npmjs.org/power-assert) can only be imported using UMD syntax
-  (`const assert = require('power-assert')`), meaning it's treated as `any` by the compiler in many cases
-
-## example
-in the current type definitions, the following error would not occur:
-```ts
-type Foo = {
-    bar: number
-}
-const foo: Foo = {
-    bar: 1
-}
-//@ts-expect-error TS2345: Argument of type '{}' is not assignable to parameter of type 'Foo'. Property 'bar' is missing in type '{}' but required in type 'Foo'
-assert.deepStrictEqual(foo, {})
-```
+  (ie. `const assert = require('power-assert')`), meaning it's treated as `any` by the compiler in many cases
 
 ## how to use
 ### normally
