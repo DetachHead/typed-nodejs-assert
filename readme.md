@@ -35,7 +35,7 @@ due to the fact that power-assert usually has to be imported using UMD syntax, i
 import {getPowerAssert, PowerAssert} from 'typed-nodejs-assert'
 const assert: PowerAssert = getPowerAssert()
 ```
-you can pass a [customization object](https://github.com/power-assert-js/power-assert#customization-api):
+you can also pass a [customization object](https://github.com/power-assert-js/power-assert#customization-api):
 ```ts
 const assert: PowerAssert = getPowerAssert({
     output: {
