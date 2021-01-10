@@ -1,5 +1,7 @@
 import assert = require('power-assert')
-import {Assert} from "./types";
+import {TypedAssert} from "./types";
+
+type Assert = TypedAssert<typeof assert>
 
 //define a const with an explicit type declaration to work around this issue
 // https://github.com/microsoft/TypeScript/issues/34596#issuecomment-691574987
