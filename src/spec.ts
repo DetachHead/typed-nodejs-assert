@@ -1,5 +1,5 @@
-import normalAssert from '../main'
-import {getPowerAssert, PowerAssert} from "../main";
+import normalAssert from './main'
+import {getPowerAssert, PowerAssert} from "./main";
 
 /**
  * would like to be able to call this 'powerAssert' to be more explicit, but that causes it to fail due to the runtime
