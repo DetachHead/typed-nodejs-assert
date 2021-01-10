@@ -29,18 +29,16 @@ easily be caught by the compiler.
 import assert from 'typed-nodejs-assert'
 ```
 ### with [power-assert](https://npmjs.org/power-assert)
-due to the fact that power-assert usually has to be imported using UMD syntax, it's a bit more complicated.
-(yes, you have to explicitly specify the type `PowerAssert` or it won't work - see 
-[this issue](https://github.com/microsoft/TypeScript/issues/34596#issuecomment-691574987))
+due to the fact that power-assert usually has to be imported using UMD syntax, you have to import it as such and give it
+the `PowerAsssert` type from this package.
+
 ```ts
-import {getPowerAssert, PowerAssert} from 'typed-nodejs-assert'
-const assert: PowerAssert = getPowerAssert()
+import { PowerAssert } from 'typed-nodejs-assert'
+const assert: PowerAssert = require('power-assert')
 ```
-you can also pass a [customization object](https://github.com/power-assert-js/power-assert#customization-api):
+**IMPORTANT:** you have to explicitly specify the type as shown above.
+the following will **not work**:
 ```ts
-const assert: PowerAssert = getPowerAssert({
-    output: {
-        maxDepth: 2
-    }
-})
+const assert = require('power-assert') as PowerAssert
 ```
+see [this issue](https://github.com/microsoft/TypeScript/issues/34596#issuecomment-691574987) for more info
