@@ -17,7 +17,7 @@ type TypedAssert<T> = Omit<T, "deepStrictEqual" | "strictEqual"> & {
 /** the `assert` types but with additional type checks in {@link strictEqual} and {@link deepStrictEqual} */
 export type Assert = TypedAssert<typeof assert>
 /** the `power-assert` types but with additional type checks in {@link strictEqual} and {@link deepStrictEqual} */
-export type PowerAssert = TypedAssert<typeof assert>
+export type PowerAssert = TypedAssert<typeof powerAssert>
 
 /**
  * a const with an explicit type declaration to work around
@@ -26,13 +26,3 @@ export type PowerAssert = TypedAssert<typeof assert>
 const _assert: Assert = assert as Assert
 
 export default _assert
-
-/**
- * wrapper for importing `power-assert` which onlly works when imported with UMD syntax.
- * this function preserves the type of the {@link assert}
- * @param options options that will be passed to {@link assert.customize}
- * @returns the `assert` object with the enhanced types
- */
-export function getPowerAssert(options?: powerAssert.Options) {
-    return (options ? powerAssert.customize(options) : assert) as PowerAssert
-}

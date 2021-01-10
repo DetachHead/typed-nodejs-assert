@@ -1,11 +1,11 @@
 import normalAssert from './main'
-import {getPowerAssert, PowerAssert} from "./main";
+import {PowerAssert} from "./main";
 
 /**
  * would like to be able to call this 'powerAssert' to be more explicit, but that causes it to fail due to the runtime
  * babel transpiling it uses. it also can't be defined in a different scope
  */
-const assert: PowerAssert = getPowerAssert()
+const assert: PowerAssert = require('power-assert')
 
 describe('power-assert', () => {
     test('output', () => {
