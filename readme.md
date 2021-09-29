@@ -20,7 +20,7 @@ easily be caught by the compiler.
   //@ts-expect-error TS2345: Argument of type '{}' is not assignable to parameter of type 'Foo'. Property 'bar' is missing in type '{}' but required in type 'Foo'
   assert.deepStrictEqual(foo, {})
   ```
-- [power-assert](https://npmjs.org/power-assert) can only be imported using UMD syntax
+- [power-assert](https://npmjs.org/power-assert) can only be imported using commonJS syntax
   (ie. `const assert = require('power-assert')`), meaning it's treated as `any` by the compiler in many cases
 
 ## how to use
