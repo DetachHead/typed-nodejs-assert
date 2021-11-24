@@ -29,7 +29,7 @@ easily be caught by the compiler.
 import assert from 'typed-nodejs-assert'
 ```
 ### with [power-assert](https://npmjs.org/power-assert)
-since power-assert has to be imported using UMD syntax, you have to import it as such, then give it the `PowerAsssert`
+since power-assert has to be imported using commonJS syntax, you have to import it as such, then give it the `PowerAsssert`
 type from this package.
 
 ```ts
